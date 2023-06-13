@@ -22,9 +22,9 @@ WHERE employee_name IN
 WHERE company_name = 'Small Bank Corporation' AND salary>80000);
 
 --4
-SELECT *FROM tbl_Employee
+SELECT employee_name FROM tbl_Employee
 WHERE city IN (SELECT city FROM tbl_Company WHERE company_name IN
-(SELECT company_name FROM tbl_Works))
+(SELECT company_name FROM tbl_Works WHERE tbl_Works.employee_name = tbl_Employee.employee_name))
 
 --5
 SELECT employee_name FROM tbl_Manages WHERE
